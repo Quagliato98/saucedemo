@@ -1,0 +1,14 @@
+{
+  "name": "desafio-qa-vox-tecnologia",
+  "version": "1.0.0",
+  "description": "Desafio técnico para a posição de QA com foco em automação de testes",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open"
+  },
+  "author": "Andrey Quagliato",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.14.2"
+  }
+}
