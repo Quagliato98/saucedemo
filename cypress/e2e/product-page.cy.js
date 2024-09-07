@@ -86,4 +86,42 @@ describe("login", () => {
       product_page.isCorrectProductCart()
     })
   })
+
+  context("remoção de produtos do carrinho", () => {
+    it('remover um produto do carrinho', () => {
+      // Given que eu não tenha nenhum produto adicionado no carrinho
+      product_page.productCartNotFound()
+
+      // And adicionar um produto no carrinho
+      product_page.addProductCart()
+      product_page.productCartAdded("1")
+      product_page.accessCartPage()
+      product_page.isCorrectProductCart()
+
+      // When remover este produto do carrinho
+      product_page.removeProductCart()
+      
+      // Then o produto será removido com sucesso
+      product_page.isCartEmpty()
+    })
+
+    it('remover mais de um produto do carrinho', () => {
+      // Given que eu não tenha nenhum produto adicionado no carrinho
+      product_page.productCartNotFound()
+  
+      // And adicionar mais de um produto no carrinho
+      product_page.addProductCart()
+      product_page.addProductCart()
+      product_page.productCartAdded("2")
+      product_page.accessCartPage()
+      product_page.isCorrectProductCart()
+  
+      // When remover estes produtos do carrinho
+      product_page.removeProductCart()
+      product_page.removeProductCart()
+
+      // Then os produtos serão removidos com sucesso
+      product_page.isCartEmpty()
+      })
+  })
 });

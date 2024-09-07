@@ -110,6 +110,14 @@ class product_page {
       .click()
   }
 
+  removeProductCart(){
+    cy.get(el.removeProductCart).should('be.visible').first().click()
+  }
+
+  isCartEmpty(){
+    cy.get(el.removeProductCart).should('not.exist')
+  }
+
   isCorrectProductCart() {
     // verifica se o item que foi adicionado realmente o correto
     cy.get('@productData').then(productData => {

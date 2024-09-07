@@ -13,4 +13,5 @@ export const ELEMENTS = {
   addToCartButton: ".pricebar > button",
   accessCartPage: "#shopping_cart_container",
   cartPageTitle: ".subheader",
+  removeProductCart: 'button[class*=cart_button]'
 };
