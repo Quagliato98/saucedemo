@@ -69,6 +69,55 @@ class product_page {
       }
     });
   }
+
+  productCartNotFound() {
+    cy.get(el.cartBadge)
+      .should("not.exist")
+  }
+
+  productCartAdded(qtd) {
+    cy.get(el.cartBadge)
+      .should("be.visible")
+      .and("have.text", qtd)
+  }
+
+  accessCartPage() {
+    cy.get(el.accessCartPage)
+      .click()
+    cy.get(el.cartPageTitle)
+      .contains('Your Cart')
+  }
+
+  addProductCart() {
+    cy.get(el.productItem).then(product => {  
+      // Extração do nome do produto, descrição e preço para comparar se foi realmente este produto que foi adicionado ao carrinho
+      const productName = product.find(el.productName).first().text();
+      const productDescription = product.find(el.productDescription).first().text();
+      const productPrice = product.find(el.productPrice).first().text().replace('$', '').trim();
+
+      // Cria o objeto JSON com os dados extraídos
+      const productData = {
+        name: productName,
+        description: productDescription,
+        price: productPrice
+      };
+
+      cy.wrap(productData).as('productData');
+    });
+    cy.get(el.addToCartButton)
+      .contains("ADD TO CART")
+      .first()
+      .click()
+  }
+
+  isCorrectProductCart() {
+    // verifica se o item que foi adicionado realmente o correto
+    cy.get('@productData').then(productData => {
+      cy.get(el.productName).contains(productData.name);
+      cy.get(el.productDescription).contains(productData.description);
+      cy.get(el.productPrice).contains(productData.price);
+    });
+  }
 }
 
 export default new product_page();
