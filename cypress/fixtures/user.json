@@ -1,0 +1,8 @@
+{
+  "firstName": "Analista",
+  "lastName": "Qualidade",
+  "postalCode": 99999999,
+  "emptyFirstName": "First Name is required",
+  "emptyLastName": "Last Name is required",
+  "emptyPostalCode": "Postal Code is required"
+}
