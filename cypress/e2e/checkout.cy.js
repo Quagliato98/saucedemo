@@ -1,9 +1,6 @@
-/// <reference types="cypress" />
-
 import login from "../support/pages/login"
 import product_page from "../support/pages/product-page"
 import checkout from "../support/pages/checkout"
-
 
 describe("login", () => {
   beforeEach(() => {
@@ -60,7 +57,6 @@ describe("login", () => {
     checkout.checkout()
     cy.fixture("user").then((credential) => {
         checkout.verifyCheckoutInformation('', credential.lastName, credential.postalCode)
-
         checkout.messageError(credential.emptyFirstName)
     });
   })
@@ -78,7 +74,6 @@ describe("login", () => {
     checkout.checkout()
     cy.fixture("user").then((credential) => {
         checkout.verifyCheckoutInformation(credential.firstName, '', credential.postalCode)
-
         checkout.messageError(credential.emptyLastName)
     });
   })
@@ -96,7 +91,6 @@ describe("login", () => {
     checkout.checkout()
     cy.fixture("user").then((credential) => {
         checkout.verifyCheckoutInformation(credential.firstName, credential.lastName, '')
-
         checkout.messageError(credential.emptyPostalCode)
     });
   })

@@ -3,6 +3,6 @@
 export const ELEMENTS = {
   username: '[data-test="username"]',
   password: '[data-test="password"]',
-  loginSubmit: "#login-button",
+  loginSubmit: "[data-test='login-button']",
   messageError: '[data-test="error"]'
 };

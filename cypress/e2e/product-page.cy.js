@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import login from "../support/pages/login"
 import product_page from "../support/pages/product-page"
 
@@ -22,7 +20,7 @@ describe("login", () => {
       product_page.filter("az")
   
       // Then visualizarei que eles estarão ordenados de A - Z
-      product_page.alphabetOrdenation("az")
+      product_page.alphabeticalOrder("az")
     });
   
     it("ordenação em ordem alfabética decrescente ao selecionar a opção 'Z a A'", () => {
@@ -33,7 +31,7 @@ describe("login", () => {
       product_page.filter("za")
   
       // Then visualizarei que eles estarão ordenados de Z - A
-      product_page.alphabetOrdenation("za")
+      product_page.alphabeticalOrder("za")
     });
   
     it("ordenação de produtos do mais barato ao mais caro", () => {
@@ -44,7 +42,7 @@ describe("login", () => {
       product_page.filter("lohi")
   
       // Then visualizarei que os produtos do mais barato ao mais caro
-      product_page.priceOrdenation("lohi")
+      product_page.priceOrder("lohi")
     });
   
     it("ordenação de produtos do mais caro ao mais barato", () => {
@@ -55,7 +53,7 @@ describe("login", () => {
       product_page.filter("hilo")
   
       // Then visualizarei que os produtos do mais caro ao mais barato
-      product_page.priceOrdenation("hilo")
+      product_page.priceOrder("hilo")
     });
   })
 
@@ -77,7 +75,7 @@ describe("login", () => {
       // Given que eu não tenha nenhum produto adicionado no carrinho
       product_page.productCartNotFound()
 
-      // When eu adicionar mais de produto no carrinho
+      // When eu adicionar mais de um produto no carrinho
       product_page.addProductCart()
       product_page.addProductCart()
       // Then visualizarei que os produtos foram adicionados no carrinho

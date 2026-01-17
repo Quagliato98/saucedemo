@@ -9,19 +9,15 @@ class login {
 
   //devido ao Cypress não aceitar digitar uma string vazia, foi necessário ajustar a função para verificar quando é enviado uma string vazia e executar determinadas ações
   loginFields(username, password) {
-    if (username == "") {
-      cy.get(el.username)
-        .clear()
-        .should("be.empty");
-    } else if (password == "") {
-      cy.get(el.password)
-        .clear()
-        .should("be.empty");
-    } else {
-      cy.get(el.username)
-        .type(username);
-      cy.get(el.password)
-        .type(password);
+    cy.get(el.username).clear();
+    cy.get(el.password).clear();
+
+    if (username) {
+      cy.get(el.username).type(username);
+    }
+
+    if (password) {
+      cy.get(el.password).type(password);
     }
   }
 

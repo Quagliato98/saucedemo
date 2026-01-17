@@ -1,10 +1,8 @@
-/// <reference types="cypress" />
-
 import login from '../support/pages/login'
 
 describe("login", () => {
   beforeEach(() => {
-    login.loginPage()
+    login.loginPage("/")
   });
 
   it("login credenciais válidas", () => {
@@ -55,7 +53,7 @@ describe("login", () => {
       login.loginSubmit()
 
       // Then devo visualizar uma mensagem de erro
-      login.messageError(credential.messageErrorUserRequired)
+      login.messageError(credential.messageErrorPasswordRequired)
     })
   });
 });
