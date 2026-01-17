@@ -1,17 +1,17 @@
 // elementos da página para que não seja necessário reutilizar várias vezes o mesmo elemento
 
 export const ELEMENTS = {
-  productLabel: ".product_label",
-  filter: ".product_sort_container",
-  nameProductItem: ".inventory_item_name",
-  priceProductItem: ".inventory_item_price",
-  cartBadge: "span[class*=shopping_cart_badge]",
-  productItem: ".inventory_item",
-  productName: ".inventory_item_name",
-  productDescription: ".inventory_item_desc",
-  productPrice: ".inventory_item_price",
+  productLabel: "[data-test='title']",
+  filter: "[data-test='product-sort-container']",
+  nameProductItem: "[data-test='inventory-item-name']",
+  priceProductItem: "[data-test='inventory-item-price']",
+  cartBadge: "[data-test='shopping-cart-badge']",
+  productItem: "[data-test='inventory-item']",
+  productName: "[data-test='inventory-item-name']",
+  productDescription: "[data-test='inventory-item-desc']",
+  productPrice: "[data-test='inventory-item-price']",
   addToCartButton: ".pricebar > button",
-  accessCartPage: "#shopping_cart_container",
-  cartPageTitle: ".subheader",
+  accessCartPage: "[data-test='shopping-cart-link']",
+  cartPageTitle: "[data-test='title']",
   removeProductCart: 'button[class*=cart_button]'
 };

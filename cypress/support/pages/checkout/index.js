@@ -67,7 +67,7 @@ class checkout {
         .contains('Shipping Information:')
         .parent()
         .find(el.infoValue)
-        .should('contain', 'FREE PONY EXPRESS DELIVERY!');
+        .should('contain', 'Free Pony Express Delivery!');
   }
 
   checkTotalCost() {
@@ -81,7 +81,7 @@ class checkout {
 
   finishPurchase() {
     cy.get(el.finishButton)
-        .contains('FINISH')
+        .contains('Finish')
         .should('be.visible')
         .click()
   }
@@ -89,10 +89,10 @@ class checkout {
   verifyMsgPurchaseFinished() {
     cy.get(el.pageTitle)
         .should('be.visible')
-        .contains('Finish')
+        .contains('Checkout: Complete!')
     cy.get(el.purchaseCompleteTitle)
         .should('be.visible')
-        .contains('THANK YOU FOR YOUR ORDER')
+        .contains('Thank you for your order!')
     cy.get(el.purchaseCompleteText)
         .should('be.visible')
         .contains('Your order has been dispatched, and will arrive just as fast as the pony can get there!')

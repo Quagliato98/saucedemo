@@ -5,5 +5,5 @@
   "wrongPassword": "wrongPassword",
   "errorUserNotFound": "Epic sadface: Username and password do not match any user in this service",
   "messageErrorUserRequired": "Epic sadface: Username is required",
-  "messageErrorPasswordRequired": "Epic sadface: Username is required"
+  "messageErrorPasswordRequired": "Epic sadface: Password is required"
 }

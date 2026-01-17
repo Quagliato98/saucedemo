@@ -12,10 +12,12 @@ class product_page {
   filter(filter) {
     cy.get(el.filter)
         .select(filter)
+    cy.get(el.filter)
+        .find("option:selected")
         .should("have.value", filter);
   }
 
-  alphabetOrdenation(filter) {
+  alphabeticalOrder(filter) {
     cy.get(el.nameProductItem).then(($products) => {
       // Extração dos nomes dos produtos para serem comparados depois
       const productNames = $products
@@ -39,7 +41,7 @@ class product_page {
     });
   }
 
-  priceOrdenation(filter) {
+  priceOrder(filter) {
     cy.get(el.priceProductItem).then(($prices) => {
       // Extrai os preços, remove o símbolo '$', e transforma em números
       const priceNumbers = $prices
@@ -105,7 +107,7 @@ class product_page {
       cy.wrap(productData).as('productData');
     });
     cy.get(el.addToCartButton)
-      .contains("ADD TO CART")
+      .contains("Add to cart")
       .first()
       .click()
   }
